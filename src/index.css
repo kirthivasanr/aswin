@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem; /* Add padding for fixed header */
+  }
+  
+  body {
+    @apply bg-black text-gray-100;
+    perspective: 1000px;
+  }
+}
+
+.hero-text {
+  transform: translateZ(50px);
+  transition: transform 0.3s ease-out;
+}
+
+.project-card {
+  transform-style: preserve-3d;
+  transition: all 0.5s ease-out;
+}
+
+.project-card:hover {
+  transform: translateY(-10px) rotateX(2deg) rotateY(2deg);
+  box-shadow: 0 20px 25px -5px rgba(147, 51, 234, 0.2);
+}
+
+.project-card img {
+  transition: transform 0.5s ease-out;
+}
+
+.project-card:hover img {
+  transform: translateZ(20px);
+}
+
+.floating-nav {
+  backdrop-filter: blur(12px);
+  transform: translateZ(20px);
+  background: rgba(0, 0, 0, 0.9);
+  border-bottom: 1px solid rgba(147, 51, 234, 0.2);
+}
+
+.aspect-w-16 {
+  position: relative;
+  padding-bottom: 56.25%;
+}
+
+.aspect-w-16 > * {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.social-icon {
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.social-icon:hover {
+  transform: translateZ(20px) scale(1.1);
+}
+
+.contact-button {
+  transform-style: preserve-3d;
+  transition: all 0.3s ease;
+}
+
+.contact-button:hover {
+  transform: translateZ(20px) scale(1.05);
+}
+
+.diagonal-section {
+  position: relative;
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), transparent);
+}
+
+.diagonal-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent, rgba(147, 51, 234, 0.05));
+  transform: skewY(-6deg);
+  transform-origin: top right;
+}
